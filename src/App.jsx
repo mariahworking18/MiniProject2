@@ -11,10 +11,9 @@ import {
   SongDetails,
   TopCharts,
 } from "./pages";
-import { bgcolor, color, margin, maxHeight, maxWidth } from "@mui/system";
+import { bgcolor, color, fontFamily, margin, maxHeight, maxWidth } from "@mui/system";
 import Container from '@mui/material/Container';
 import Box from '@mui/material/Box';
-import { auto } from "@popperjs/core";
 
 
 const App = () => {
