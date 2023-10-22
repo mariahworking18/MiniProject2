@@ -6,7 +6,6 @@ import { links } from '../assets/constants';
 import * as React from 'react';
 import Box from '@mui/material/Box';
 import Drawer from '@mui/material/Drawer';
-import CssBaseline from '@mui/material/CssBaseline';
 import Toolbar from '@mui/material/Toolbar';
 import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
@@ -15,26 +14,31 @@ import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 import InboxIcon from '@mui/icons-material/MoveToInbox';
 import MailIcon from '@mui/icons-material/Mail';
-import { Directions } from "@mui/icons-material";
+import { Directions, DisabledByDefault } from "@mui/icons-material";
 
 const drawerWidth = 240;
 
 const NavLinks = ({handleClick}) => (
   <Box sx={{display: 'flex', flexDirection: 'column'}}>
     {links.map((item) => (
-      <NavLink key={item.name} to={item.to} onClick={() => handleClick && handleClick()}>
-        {item.name}
-      </NavLink>
+      <ListItem disablePadding>
+        <ListItemButton
+        key={item.name} 
+        to={item.to} 
+        onClick={() => handleClick && handleClick()}
+        sx={{gap: 1, color: '#A56B60'}}>
+          <item.icon size={'1.2rem'} />
+          {item.name}
+        </ListItemButton>
+      </ListItem>
     ))}
   </Box>
 );
 
 const Sidebar = () => (
       <Box sx={{ display: 'flex' }}>
-        <CssBaseline />
         <Drawer
           sx={{
-            // bgcolor: '#C0521D',
             width: drawerWidth,
             flexShrink: 0,
             '& .MuiDrawer-paper': {
@@ -50,7 +54,7 @@ const Sidebar = () => (
         >
         <h1>GROOVE</h1>
         <Toolbar />
-        <List>
+        {/* <List>
           {['Discover', 'Around You', 'Top Artist', 'Top Charts'].map((text, index) => (
             <ListItem key={text} disablePadding>
               <ListItemButton>
@@ -61,7 +65,7 @@ const Sidebar = () => (
               </ListItemButton>
             </ListItem>
           ))}
-        </List>
+        </List> */}
         <NavLinks />
         </Drawer>
       </Box>          
