@@ -10,16 +10,11 @@ import Toolbar from '@mui/material/Toolbar';
 import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
 import ListItemButton from '@mui/material/ListItemButton';
-import ListItemIcon from '@mui/material/ListItemIcon';
-import ListItemText from '@mui/material/ListItemText';
-import InboxIcon from '@mui/icons-material/MoveToInbox';
-import MailIcon from '@mui/icons-material/Mail';
-import { Directions, DisabledByDefault } from "@mui/icons-material";
 
 const drawerWidth = 240;
 
 const NavLinks = ({handleClick}) => (
-  <Box sx={{display: 'flex', flexDirection: 'column'}}>
+  <List sx={{display: 'flex', flexDirection: 'column'}}>
     {links.map((item) => (
       <ListItem disablePadding>
         <ListItemButton
@@ -32,7 +27,7 @@ const NavLinks = ({handleClick}) => (
         </ListItemButton>
       </ListItem>
     ))}
-  </Box>
+  </List>
 );
 
 const Sidebar = () => (
@@ -46,7 +41,8 @@ const Sidebar = () => (
               boxSizing: 'border-box',
               bgcolor: '#F4E1DE',
               color: '#C0521D',
-              alignItems: 'center'
+              alignItems: 'center',
+              // borderRight: 'none'
             },
           }}
           variant="permanent"
@@ -54,18 +50,6 @@ const Sidebar = () => (
         >
         <h1>GROOVE</h1>
         <Toolbar />
-        {/* <List>
-          {['Discover', 'Around You', 'Top Artist', 'Top Charts'].map((text, index) => (
-            <ListItem key={text} disablePadding>
-              <ListItemButton>
-                <ListItemIcon sx={{color: '#A56B60'}}>
-                  {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-                </ListItemIcon>
-                <ListItemText sx={{color: '#A56B60'}} primary={text} />
-              </ListItemButton>
-            </ListItem>
-          ))}
-        </List> */}
         <NavLinks />
         </Drawer>
       </Box>          
