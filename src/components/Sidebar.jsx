@@ -14,35 +14,39 @@ import { makeStyles } from '@mui/styles';
 
 const drawerWidth = 240;
 
-const useStyles = makeStyles((theme) => ({
-  customListItem: {
-    '&:hover': {
-      backgroundColor: 'white'
-    },
-  },
-}));
+// const useStyles = makeStyles((theme) => ({
+//   customListItem: {
+//     '&:hover': {
+//       backgroundColor: 'white'
+//     },
+//   },
+// }));
 
-const NavLinks = ({handleClick}) => {
-  const classes = useStyles();
-  return (
+const NavLinks = ({handleClick}) => (
+  // const classes = useStyles();
+  // return (
     <List sx={{display: 'flex', flexDirection: 'column'}}>
     {links.map((item) => (
-      <ListItem disablePadding className={classes.customListItem}>
+      <ListItem disablePadding >
+      {/* className={classes.customListItem} this is inside the ListItem */}
         <ListItemButton
         key={item.name} 
         to={item.to} 
         onClick={() => handleClick && handleClick()}
-        sx={{gap: 1, color: '#A56B60'
-        }}
-        >
+        sx={{gap: 1, color: '#A56B60',
+        '&:hover': {
+            backgroundColor: 'transparent',
+            color: '#C0521D'
+          },
+        }}>
           <item.icon size={'1.2rem'} />
           {item.name}
         </ListItemButton>
       </ListItem>
     ))}
     </List>
-  )
-};
+  // )
+);
 
 const Sidebar = () => (
       <Box sx={{ display: 'flex' }}>
