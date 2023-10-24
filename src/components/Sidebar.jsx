@@ -14,35 +14,27 @@ import { makeStyles } from '@mui/styles';
 
 const drawerWidth = 240;
 
-const useStyles = makeStyles((theme) => ({
-  customListItem: {
-    '&:hover': {
-      backgroundColor: 'white'
-    },
-  },
-}));
-
-const NavLinks = ({handleClick}) => {
-  const classes = useStyles();
-  return (
-    <List sx={{display: 'flex', flexDirection: 'column'}}>
+const NavLinks = ({handleClick}) => (
+  <List sx={{display: 'flex', flexDirection: 'column'}}>
     {links.map((item) => (
-      <ListItem disablePadding className={classes.customListItem}>
+      <ListItem disablePadding >
         <ListItemButton
         key={item.name} 
         to={item.to} 
         onClick={() => handleClick && handleClick()}
-        sx={{gap: 1, color: '#A56B60'
-        }}
-        >
+        sx={{gap: 1, color: '#A56B60',
+        '&:hover': {
+            backgroundColor: 'transparent',
+            color: '#C0521D'
+          },
+        }}>
           <item.icon size={'1.2rem'} />
           {item.name}
         </ListItemButton>
       </ListItem>
     ))}
-    </List>
-  )
-};
+  </List>
+);
 
 const Sidebar = () => (
       <Box sx={{ display: 'flex' }}>
@@ -56,7 +48,7 @@ const Sidebar = () => (
               bgcolor: '#F4E1DE',
               color: '#C0521D',
               alignItems: 'center',
-              // borderRight: 'none'
+              borderRight: 'none'
             },
           }}
           variant="permanent"
