@@ -10,9 +10,15 @@ import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
 import Stack from "@mui/material/Stack";
+import { useGetTopChartsQuery } from "../redux/Service/shazamCore";
 
 export default function Discover() {
-  const genresTitle = "Pop";
+  const { data, isFetching, error } = useGetTopChartsQuery();
+  const genreTitle = "Pop";
+
+  if (isFetching) return <Loader title="Loading songs..." />;
+  if (error) return <Error />;
+
   const [age, setAge] = React.useState("");
   const handleChange = (event) => {
     setAge(event.target.value);
@@ -38,7 +44,7 @@ export default function Discover() {
           fontWeight: "700",
         }}
       >
-        {"Discover"}
+        {("Discover", genreTitle)}
       </Box>
 
       <Box sx={{ minWidth: 120, display: "flex", justifyContent: "center" }}>
@@ -63,7 +69,7 @@ export default function Discover() {
         sx={{
           display: "flex",
           flex: "wrap",
-          justifyContent: "start",
+          // justifyContent: "start",
           justifyContent: "center",
         }}
       >
@@ -73,7 +79,7 @@ export default function Discover() {
           useFlexGap
           flexWrap="wrap"
         >
-          {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((song, i) => (
+          {data?.map((song, i) => (
             <SongCard key={song.key} song={song} i={i} />
           ))}
         </Stack>
