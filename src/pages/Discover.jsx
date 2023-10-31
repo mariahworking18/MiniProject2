@@ -16,12 +16,12 @@ export default function Discover() {
   const { data, isFetching, error } = useGetTopChartsQuery();
   const genreTitle = "Pop";
 
-  if (isFetching) return <Loader title="Loading songs..." />;
-  if (error) return <Error />;
+  // if (isFetching) return <Loader title="Loading songs..." />;
+  // if (error) return <Error />;
 
-  const [age, setAge] = React.useState("");
+  const [genre, setGenre] = React.useState("");
   const handleChange = (event) => {
-    setAge(event.target.value);
+    setGenre(event.target.value);
   };
 
   return (
@@ -32,29 +32,21 @@ export default function Discover() {
           justifyContent: "center",
           m: 1,
           p: 1,
-          // bgcolor: (theme) =>
-          //   theme.palette.mode === "dark" ? "#101010" : "#fff",
-          // color: (theme) =>
-          //   theme.palette.mode === "dark" ? "grey.300" : "grey.800",
-          // border: "1px solid",
-          // borderColor: (theme) =>
-          //   theme.palette.mode === "dark" ? "grey.800" : "grey.300",
-          // borderRadius: 2,
           fontSize: "1.5rem",
           fontWeight: "700",
         }}
       >
-        {("Discover", genreTitle)}
+        {("Discover")}
       </Box>
 
-      <Box sx={{ minWidth: 120, display: "flex", justifyContent: "center" }}>
+      <Box sx={{ minWidth: 120, display: "flex", justifyContent: "center", marginBottom: '20px' }}>
         <FormControl fullWidth>
           <InputLabel id="demo-simple-select-label">Genre</InputLabel>
           <Select
             labelId="demo-simple-select-label"
             id="demo-simple-select"
-            value={age}
-            label="Age"
+            value={genre}
+            label="Genre"
             onChange={handleChange}
           >
             {genres.map((genre) => (
@@ -69,7 +61,6 @@ export default function Discover() {
         sx={{
           display: "flex",
           flex: "wrap",
-          // justifyContent: "start",
           justifyContent: "center",
         }}
       >
@@ -86,4 +77,8 @@ export default function Discover() {
       </Box>
     </Container>
   );
+  // console.log(data)
+  // return (
+  //   <h1>Discover</h1>
+  // )
 }
