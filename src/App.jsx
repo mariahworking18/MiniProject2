@@ -27,6 +27,7 @@ const App = () => {
 
   return (
     <Container>
+      <Sidebar />
       <Box
         sx={{
           width: maxWidth,
@@ -35,10 +36,8 @@ const App = () => {
           padding: 0,
         }}
       >
-        <Sidebar />
         <Box>
           <Searchbar />
-
           <Box>
             <Routes>
               <Route path="/" element={<Discover />} />

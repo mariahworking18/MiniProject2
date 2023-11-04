@@ -13,39 +13,32 @@ import { CardActionArea } from '@mui/material';
 
 
 const SongCard = ({ song, i }) => {
-  
   return (
-    <Card sx={{ maxWidth: 345 }}>
-      <CardActionArea sx={{backgroundColor: 'white'}} >
+    <Card sx={{ width: 200, justifyContent: 'space-evenly', alignContent: 'space-between', backgroundColor: 'lightgray' }}>
+      <CardActionArea sx={{height: '220px'}} >
         <CardMedia
           component="img"
           height="140"
-          // image="/static/images/cards/contemplative-reptile.jpg"
+          image="/static/images/cards/contemplative-reptile.jpg"
           alt="song_image"
-          src={song.images?.coverart}
+          // src={song.images? .coverart}
+          // image={song.images? .coverart}
         />
-        <Typography>
-          <Link>
-            {song.title}
-          </Link>
-        </Typography>
-        <Typography>
-          <Link>
-            {song.subtitle}
-          </Link>
-        </Typography>
-        {/* <CardContent>
-          <Typography gutterBottom variant="h5" component="div">
-            Lizard
+        <CardContent>
+          <Typography variant='p' sx={{fontSize: '1rem'}}>
+            <Link >
+              {song.artist_and_title}
+            </Link>
           </Typography>
-          <Typography variant="body2" color="text.secondary">
-            Lizards are a widespread group of squamate reptiles, with over 6,000
-            species, ranging across all continents except Antarctica
+          <Typography sx={{fontSize: '.8rem'}}>
+            <Link>
+              {song.daily}
+            </Link>
           </Typography>
-        </CardContent> */}
+        </CardContent>
       </CardActionArea>
     </Card>
-  );
+  )
 };
 
 export default SongCard;

@@ -10,11 +10,11 @@ import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
 import Stack from "@mui/material/Stack";
-import { useGetTopChartsQuery } from "../redux/Service/shazamCore";
+import { shazamCoreApi, useGetTopChartsQuery } from "../redux/Service/shazamCore";
 
 export default function Discover() {
   const { data, isFetching, error } = useGetTopChartsQuery();
-  const genreTitle = "Pop";
+  const genreTitle = "";
 
   // if (isFetching) return <Loader title="Loading songs..." />;
   // if (error) return <Error />;
@@ -25,8 +25,8 @@ export default function Discover() {
   };
 
   return (
-    <Container>
-      <Box
+    <Container sx={{marginLeft: '100px'}}>
+      {/* <Box
         sx={{
           display: "flex",
           justifyContent: "center",
@@ -36,11 +36,12 @@ export default function Discover() {
           fontWeight: "700",
         }}
       >
-        {("Discover")}
-      </Box>
+        {'Discover'}
+      </Box> */}
 
-      <Box sx={{ minWidth: 120, display: "flex", justifyContent: "center", marginBottom: '20px' }}>
-        <FormControl fullWidth>
+      <Box sx={{ minWidth: 120, display: "flex", justifyContent: 'space-between', alignItems: 'center', marginBottom: '20px', fontSize: "1.5rem", fontWeight: "600", color: '#A56B60' }}>
+        {'Discover '}{genre}
+        <FormControl sx={{width: '220px'}}>
           <InputLabel id="demo-simple-select-label">Genre</InputLabel>
           <Select
             labelId="demo-simple-select-label"
