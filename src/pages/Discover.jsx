@@ -1,3 +1,5 @@
+import { useDispatch, useSelector } from "react-redux";
+
 import { Error, Loader, SongCard } from "../components";
 import { genres } from "../assets/constants";
 
@@ -13,6 +15,9 @@ import Stack from "@mui/material/Stack";
 import { shazamCoreApi, useGetTopChartsQuery } from "../redux/Service/shazamCore";
 
 export default function Discover() {
+  const dispatch = useDispatch();
+  const { isPlaying, activeSong } = useSelector((state) => state.player);
+
   const { data, isFetching, error } = useGetTopChartsQuery();
   const genreTitle = "";
 
@@ -72,7 +77,14 @@ export default function Discover() {
           flexWrap="wrap"
         >
           {data?.map((song, i) => (
-            <SongCard key={song.key} song={song} i={i} />
+            <SongCard 
+              key={song.key} 
+              song={song}
+              isPlaying={isPlaying}
+              activeSong={activeSong}
+              i={i}
+              data={data}
+            />
           ))}
         </Stack>
       </Box>
