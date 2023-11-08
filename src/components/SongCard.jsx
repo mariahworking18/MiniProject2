@@ -29,10 +29,10 @@ const SongCard = ({ song, isPlaying, activeSong, i, data, coverArtImage }) => {
         width: "200px",
         justifyContent: "space-evenly",
         alignContent: "space-between",
-        backgroundColor: "lightgray",
+        backgroundColor: "#F4E1DE",
       }}
     >
-      <CardActionArea sx={{ height: "250px" }}>
+      <CardActionArea sx={{ height: "auto" }}>
         <PlayPause
           isPlaying={isPlaying}
           activeSong={activeSong}
@@ -42,16 +42,16 @@ const SongCard = ({ song, isPlaying, activeSong, i, data, coverArtImage }) => {
         />
         <CardMedia
           component="img"
-          height="140"
+          height="auto"
           alt="song_image"
           image={coverArtImage}
         />
         <CardContent>
           <Typography variant="p" sx={{ fontSize: "1rem" }}>
-            <Link to={`/songs/${song?.key}`}>{song.title}</Link>
+            <Link style={{textDecorationLine:'none', color:'#C0521D'}} to={`/songs/${song?.key}`}>{song.title}</Link>
           </Typography>
           <Typography sx={{ fontSize: ".8rem" }}>
-            <Link>{song.subtitle}</Link>
+            <Link style={{textDecorationLine:'none', color:'#A56B60'}}>{song.subtitle}</Link>
           </Typography>
         </CardContent>
       </CardActionArea>
