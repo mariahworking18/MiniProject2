@@ -12,7 +12,10 @@ import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
 import Stack from "@mui/material/Stack";
-import { shazamCoreApi, useGetTopChartsQuery } from "../redux/Service/shazamCore";
+import {
+  shazamCoreApi,
+  useGetTopChartsQuery,
+} from "../redux/Service/shazamCore";
 
 export default function Discover() {
   const dispatch = useDispatch();
@@ -28,9 +31,8 @@ export default function Discover() {
   const handleChange = (event) => {
     setGenre(event.target.value);
   };
-
   return (
-    <Container sx={{marginLeft: '100px'}}>
+    <Container>
       {/* <Box
         sx={{
           display: "flex",
@@ -44,9 +46,21 @@ export default function Discover() {
         {'Discover'}
       </Box> */}
 
-      <Box sx={{ minWidth: 120, display: "flex", justifyContent: 'space-between', alignItems: 'center', marginBottom: '20px', fontSize: "1.5rem", fontWeight: "600", color: '#A56B60' }}>
-        {'Discover '}{genre}
-        <FormControl sx={{width: '220px'}}>
+      <Box
+        sx={{
+          minWidth: 120,
+          display: "flex",
+          justifyContent: "space-between",
+          alignItems: "center",
+          marginBottom: "20px",
+          fontSize: "1.5rem",
+          fontWeight: "600",
+          color: "#A56B60",
+        }}
+      >
+        {"Discover "}
+        {genre}
+        <FormControl sx={{ width: "220px" }}>
           <InputLabel id="demo-simple-select-label">Genre</InputLabel>
           <Select
             labelId="demo-simple-select-label"
@@ -76,22 +90,19 @@ export default function Discover() {
           useFlexGap
           flexWrap="wrap"
         >
-          {data?.map((song, i) => (
-            <SongCard 
-              key={song.key} 
+          {data?.tracks.map((song) => (
+            <SongCard
+              key={song.key}
               song={song}
               isPlaying={isPlaying}
               activeSong={activeSong}
-              i={i}
-              data={data}
+              coverArtImage={song.images.coverart}
             />
           ))}
         </Stack>
       </Box>
     </Container>
   );
-  // console.log(data)
-  // return (
-  //   <h1>Discover</h1>
-  // )
+  // console.log(data);
+  // return <h1>Discover</h1>;
 }
