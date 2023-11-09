@@ -37,7 +37,7 @@ const App = () => {
         }}
       >
         <Box>
-          <Searchbar />
+          {/* <Searchbar /> */}
           <Box>
             <Routes>
               <Route path="/" element={<Discover />} />

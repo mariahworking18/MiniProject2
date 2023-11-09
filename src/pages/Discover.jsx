@@ -31,28 +31,18 @@ export default function Discover() {
   const handleChange = (event) => {
     setGenre(event.target.value);
   };
-  return (
-    <Container>
-      {/* <Box
-        sx={{
-          display: "flex",
-          justifyContent: "center",
-          m: 1,
-          p: 1,
-          fontSize: "1.5rem",
-          fontWeight: "700",
-        }}
-      >
-        {'Discover'}
-      </Box> */}
 
+  console.log(data);
+  return (
+    <Container sx={{width:'65vw', alignContent:'space-around'}}>
       <Box
         sx={{
-          minWidth: 120,
+          width: '55vw',
           display: "flex",
           justifyContent: "space-between",
           alignItems: "center",
-          marginBottom: "20px",
+          margin: '20px 0',
+          // marginBottom: "20px",
           fontSize: "1.5rem",
           fontWeight: "600",
           color: "#A56B60",
@@ -80,8 +70,9 @@ export default function Discover() {
       <Box
         sx={{
           display: "flex",
-          flex: "wrap",
-          justifyContent: "center",
+
+          justifyContent: "space-between",
+          width: '65vw',
         }}
       >
         <Stack
